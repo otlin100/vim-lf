@@ -58,6 +58,8 @@ function! s:LfChooserForNeoVim(dirname)
         endtry
     endfunction
     let cmd = g:lf_executable . ' -selection-path '.s:callback.tempname.' '.shellescape(a:dirname)
+    setlocal nonumber norelativenumber signcolumn=no listchars=
+    setlocal nocursorcolumn nocursorline
     call termopen(cmd, s:callback)
     startinsert
 endfunction
